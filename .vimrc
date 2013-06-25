@@ -4,6 +4,8 @@ set nocompatible
 let g:pathogen_disabled = ['AutoClose', 'autoclose']
 call pathogen#infect()
 
+let g:session_autosave = 'no'
+
 " Make me beautiful
 set t_Co=256
 set background=dark
