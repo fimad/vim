@@ -12,6 +12,8 @@ set background=dark
 let g:solarized_contrast="medium"
 colorscheme solarized
 
+"set up an easy to reach leader
+let mapleader = ";"
 
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
@@ -70,9 +72,22 @@ set nowb
 inoremap jj <ESC>
 
 " press ; to issue commands in normal mode (no more shift holding)
-nnoremap ; :
+"nnoremap ; :
 
 "nnoremap <silent><Leader><C-]> <C-w><C-]><C-w>T
 nnoremap <f12> :!ctags -R --c-kinds=+degmnstvf --c++-kinds=+cdefgmnstuv --java-kinds=+cefgimp<cr>
 nnoremap <f8> :!make<cr>
 nnoremap <f7> :!pdflatex "%"<cr>
+
+"Set up Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+nnoremap <leader>r :<C-u>Unite -start-insert -tab -auto-preview file_rec<CR>
+"Most recently used
+nnoremap <leader>m :<C-u>Unite -start-insert -tab -auto-preview file_mru<CR>
+"Search through yank history!
+let g:unite_source_history_yank_enable = 1
+nnoremap <leader>y :<C-u>Unite -start-insert history/yank<CR>
+"Search through tabs
+nnoremap <leader>t :<C-u>Unite -start-insert tab<CR>
+"search lines
+nnoremap <silent> /  :<C-u>Unite -buffer-name=search line/fast -start-insert<CR>
