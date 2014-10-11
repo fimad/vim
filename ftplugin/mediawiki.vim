@@ -7,7 +7,7 @@ setlocal matchpairs+=<:>
 " <CR> or using "o".
 setlocal comments=
 setlocal formatlistpat=^\ *[*]\ *
-setlocal formatoptions+=qna
+setlocal formatoptions+=qn
 setlocal nocindent
  
 " match HTML tags (taken directly from $VIM/ftplugin/html.vim)
